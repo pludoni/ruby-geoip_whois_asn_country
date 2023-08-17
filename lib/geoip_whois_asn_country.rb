@@ -11,6 +11,7 @@ module GeoipWhoisAsnCountry
   def self.configure(&block)
     block.call(GeoIpCountry)
     Singleton.__init__(GeoIpCountry)
+    nil
   end
 
   class GeoIpCountry
@@ -81,6 +82,7 @@ module GeoipWhoisAsnCountry
         end
       end
       @ipv6_sorted_keys = @ipv6_map.keys.sort.freeze
+      nil
     end
 
     def _lookup(ip)

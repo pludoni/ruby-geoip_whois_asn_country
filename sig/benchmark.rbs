@@ -1,0 +1,15 @@
+class BenchmarkTest
+  include GeoipWhoisAsnCountry
+
+  def lookup: (untyped ip) -> untyped
+
+  def benchmark_load: () -> untyped
+
+  def cached_load: () -> untyped
+
+  def measure: (untyped title) { () -> untyped } -> untyped
+
+  def test_function: () -> untyped
+
+  def test_benchmark: () -> untyped
+end

@@ -1,4 +1,39 @@
+# TypeProf 0.21.3
+
+# Classes
 module GeoipWhoisAsnCountry
   VERSION: String
-  # See the writing guide of rbs: https://github.com/ruby/rbs#guides
+
+  def self.lookup: (String | IPAddr ip_address) -> Symbol?
+  def self.configure: () { ( singleton(GeoIpCountry) ) -> untyped } -> nil
+
+  class GeoIpCountry
+    include Singleton
+
+    self.@singleton__instance__: untyped
+    @ipv4_map: Hash[Integer, Symbol]
+    @ipv4_sorted_keys: Array[Integer]
+    @ipv6_map: Hash[Integer, Symbol]
+    @ipv6_sorted_keys: Array[Integer]
+
+    def self.cache_path: -> String
+    def self.cache_path=: (String path) -> String
+
+    def self.ipv6_num_csv_path: -> String
+    def self.ipv6_num_csv_path=: (String path) -> String
+
+    def self.ipv4_num_csv_path: -> String
+    def self.ipv4_num_csv_path=: (String path) -> String
+
+    def self.instance: -> GeoIpCountry
+
+
+    def self._lookup: (String | IPAddr ip) -> Symbol?
+    def _dump: (untyped depth) -> String
+    def self._load: (untyped map_str) -> GeoIpCountry
+    def self.cache!: -> Integer
+    def self.load_from_cache: -> GeoIpCountry
+    def load_csvs: -> nil
+    def _lookup: (String | IPAddr ip) -> Symbol?
+  end
 end
