@@ -1,0 +1,13 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+.geoip-cache
+package.json
+yarn.lock
+node_modules
+Gemfile.lock
