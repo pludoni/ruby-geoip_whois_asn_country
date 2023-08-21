@@ -5,8 +5,8 @@ require 'benchmark'
 
 GeoipWhoisAsnCountry.configure do |config|
   config.cache_path = "./.geoip-cache"
-  config.ipv4_num_csv_path = "../node_modules/@ip-location-db/geo-whois-asn-country/geo-whois-asn-country-ipv4-num.csv"
-  config.ipv6_num_csv_path = "../node_modules/@ip-location-db/geo-whois-asn-country/geo-whois-asn-country-ipv6-num.csv"
+  config.ipv4_num_csv_path = "./node_modules/@ip-location-db/geo-whois-asn-country/geo-whois-asn-country-ipv4-num.csv"
+  config.ipv6_num_csv_path = "./node_modules/@ip-location-db/geo-whois-asn-country/geo-whois-asn-country-ipv6-num.csv"
 end
 
 class BenchmarkTest

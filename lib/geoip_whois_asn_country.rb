@@ -18,7 +18,7 @@ module GeoipWhoisAsnCountry
     include Singleton
 
     class << self
-      attr_accessor :ipv4_num_csv_path, :ipv6_num_csv_path, :cache_path
+      attr_accessor :ipv4_num_csv_path, :ipv6_num_csv_path, :cache_path, :cache_time
     end
     self.ipv4_num_csv_path = "./node_modules/@ip-location-db/geo-whois-asn-country/geo-whois-asn-country-ipv4-num.csv"
     self.ipv6_num_csv_path = "./node_modules/@ip-location-db/geo-whois-asn-country/geo-whois-asn-country-ipv6-num.csv"
