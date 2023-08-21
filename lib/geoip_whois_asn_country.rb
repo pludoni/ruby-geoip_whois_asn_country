@@ -23,13 +23,14 @@ module GeoipWhoisAsnCountry
     self.ipv4_num_csv_path = "./node_modules/@ip-location-db/geo-whois-asn-country/geo-whois-asn-country-ipv4-num.csv"
     self.ipv6_num_csv_path = "./node_modules/@ip-location-db/geo-whois-asn-country/geo-whois-asn-country-ipv6-num.csv"
     self.cache_path = "tmp/cache/geoip-country-cache"
+    self.cache_time = 60 * 60 * 24
 
     def self._lookup(ip)
       if !@singleton__instance__ || @singleton__instance__.instance_variables.length == 0
-        if File.exist?(cache_path)
+        if File.exist?(cache_path) && File.mtime(cache_path) > Time.now - cache_time
           @singleton__instance__ = load_from_cache
         else
-          puts "GeoIP-Whois-ASN-Country: first load + cache"
+          # puts "GeoIP-Whois-ASN-Country: first load + cache"
           instance.load_csvs
           cache!
         end
