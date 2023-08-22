@@ -45,12 +45,17 @@ class BenchmarkTest
 
   def test_function
     result = lookup("38.207.140.199")
-    if result != :CN
-      raise
+    if ![:HK, :US].include?(result)
+      raise "Fail: #{result}"
     end
     result = lookup("2a01:4f8:c2c:7c6d::1")
-    if result != :FI
-      raise
+    if result != :DE
+      raise "Fail: #{result}"
+    end
+
+    result = lookup("95.90.143.31")
+    if result != :DE
+      raise "Fail: #{result}"
     end
   end
 

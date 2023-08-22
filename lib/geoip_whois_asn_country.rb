@@ -90,9 +90,11 @@ module GeoipWhoisAsnCountry
       ip = IPAddr.new(ip) if ip.is_a?(String)
       ip_i = ip.to_i
       if ip.ipv4?
-        @ipv4_map[@ipv4_sorted_keys.bsearch { |x| x >= ip_i }]
+        key = @ipv4_sorted_keys.bsearch_index { |x| x > ip_i }
+        @ipv4_map[@ipv4_sorted_keys[key - 1]]
       else
-        @ipv6_map[@ipv6_sorted_keys.bsearch { |x| x >= ip_i }]
+        key = @ipv6_sorted_keys.bsearch_index { |x| x > ip_i }
+        @ipv6_map[@ipv6_sorted_keys[key - 1]]
       end
     end
   end
